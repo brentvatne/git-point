@@ -1,7 +1,6 @@
 {
   "presets": [
-    "react-native",
-    "flow"
+    "babel-preset-expo"
   ],
   "retainLines": true,
   "plugins": [

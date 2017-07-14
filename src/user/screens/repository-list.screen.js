@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { FlatList, View, Dimensions, StyleSheet } from 'react-native';
-import SearchBar from 'react-native-search-bar';
 
 import {
+  SearchBar,
   ViewContainer,
   RepositoryListItem,
   LoadingRepositoryListItem

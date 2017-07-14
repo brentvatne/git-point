@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   AsyncStorage,
   Image,
   StyleSheet,
   View,
   LayoutAnimation
 } from 'react-native';
+import { Constants } from 'expo';
 
 import { colors } from 'config';
 
@@ -20,13 +20,10 @@ import { Provider } from 'react-redux';
 import { persistStore } from 'redux-persist';
 import createEncryptor from 'redux-persist-transform-encrypt';
 
-// Device Info
-import DeviceInfo from 'react-native-device-info';
-
 // md5
 import md5 from 'md5';
 
-class App extends Component {
+export default class App extends Component {
   constructor() {
     super();
 
@@ -37,7 +34,7 @@ class App extends Component {
 
   componentWillMount() {
     const encryptor = createEncryptor({
-      secretKey: md5(DeviceInfo.getUniqueID())
+      secretKey: md5(Constants.deviceId)
     });
 
     persistStore(
@@ -83,5 +80,3 @@ const styles = StyleSheet.create({
     height: 100
   }
 });
-
-AppRegistry.registerComponent('GitPoint', () => App);

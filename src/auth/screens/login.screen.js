@@ -8,7 +8,7 @@ import {
   Platform
 } from 'react-native';
 import { Button } from 'react-native-elements';
-import SafariView from 'react-native-safari-view';
+import { Constants, WebBrowser } from 'expo';
 
 import { ViewContainer, LoadingContainer } from 'components';
 
@@ -30,6 +30,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   auth: (code, state) => dispatch(auth(code, state))
 });
+
+console.disableYellowBox = true;
 
 class Login extends Component {
   props: {
@@ -78,27 +80,15 @@ class Login extends Component {
       this.props.auth(code, state);
     }
 
-    if (Platform.OS === 'ios') {
-      SafariView.dismiss();
-    }
+    WebBrowser.dismissBrowser();
   };
 
-  openURL = url => {
-    // Use SafariView on iOS
-    if (Platform.OS === 'ios') {
-      SafariView.show({
-        url: url,
-        fromBottom: true
-      });
-    } else {
-      Linking.openURL(url);
-    }
-  };
+  signIn = () => {
+    let url = `https://github.com/login/oauth/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=` +
+      `${encodeURIComponent(Constants.linkingUri + 'welcome')}&scope=user%20repo&state=${stateRandom}`;
 
-  signIn = () =>
-    this.openURL(
-      `https://github.com/login/oauth/authorize?response_type=token&client_id=${CLIENT_ID}&redirect_uri=gitpoint://welcome&scope=user%20repo&state=${stateRandom}`
-    );
+    WebBrowser.openBrowserAsync(url);
+  }
 
   render() {
     const { isLoggingIn, isAuthenticated } = this.props;

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { FlatList, View, StyleSheet, Dimensions, Text } from 'react-native';
 import { ButtonGroup } from 'react-native-elements';
-import SearchBar from 'react-native-search-bar';
 
-import { ViewContainer, IssueListItem, LoadingContainer } from 'components';
+import { SearchBar, ViewContainer, IssueListItem, LoadingContainer } from 'components';
 
 import { colors, normalize } from 'config';
 

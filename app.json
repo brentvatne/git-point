@@ -1,4 +1,23 @@
 {
   "name": "GitPoint",
-  "displayName": "GitPoint"
+  "displayName": "GitPoint",
+  "expo": {
+    "name": "GitPoint",
+    "slug": "git-point",
+    "description": "GitPoint!",
+    "privacy": "public",
+    "sdkVersion": "18.0.0",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
+    "icon": "./icon.png",
+    "loading": {
+      "hideExponentText": false,
+      "icon": "./icon.png",
+      "backgroundColor": "#ffffff"
+    },
+    "packagerOpts": {
+      "assetExts": ["ttf"]
+    }
+  }
 }

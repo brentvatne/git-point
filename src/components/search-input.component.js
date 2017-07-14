@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Dimensions, View } from 'react-native';
-import SearchBar from 'react-native-search-bar';
+import { SearchBar } from './search-bar.component';
 
 import { colors, normalize } from 'config';
 
